@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/shaxa9505/MusicProject#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
+    "mongoose": "^6.3.4",
     "nodemon": "^2.0.16",
     "pug": "^3.0.2"
   }

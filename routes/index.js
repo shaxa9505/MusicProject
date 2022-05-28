@@ -1,8 +1,20 @@
 const {Router} = require("express");
-const router = Router();
+const routes = Router();
+const Music = require("../model/Music");
 
-router.get("/", (req, res) => {
-    res.render("index", {title: "Bosh sahifa"})
+routes.get("/", (req, res) => {
+    Music.find({}, (err, data) => {
+        if(err) console.log(err);
+        else {
+            res.render("index", {title: "Bosh sahifa", isIndex: true, data})
+        }
+    });
 })
 
-module.exports = router
+
+
+
+
+module.exports = routes
+
+

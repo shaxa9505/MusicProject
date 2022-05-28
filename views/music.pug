@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    div.mt-5
+        h5 Ijrochi: #{music.singer}
+        hr
+        h1 Musiqa nomi: #{music.name}
+        hr
+        p Izoh: #{music.comments}
+
+        a.btn.btn-warning.mt-2.link(href="/music/edit/" +music._id) O`zgartirish 
+        a.btn.btn-danger.mt-2(href="/") O`Chirish 

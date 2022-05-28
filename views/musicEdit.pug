@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1.text-center.mt-4.mb-5 #{title}
+    form(method='POST' action='/music/edit/' +music._id)
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Musiqani nomini yozing
+            input#exampleInputEmail1.form-control(type='text' name="name" value=music.name)
+        .mb-3
+            label.form-label(for='singer') Ijrochini yozing
+            input#singer.form-control(type='text' name='singer' value=music.singer)
+        .mb-3
+            label.form-label(for='izoh') Izoh
+            input#izoh.form-control(type='text' name='comments' value=music.comments)
+        button.btn.btn-warning(type='submit') O`zgartirish

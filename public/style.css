@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar .collapse .navbar-nav .nav-item .nav-link.active{
+    color: #00ffc1;
+}
+
+.link{
+    margin-right: 35px;
+}

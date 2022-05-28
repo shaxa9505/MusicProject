@@ -1,4 +1,8 @@
 extends layout
 
 block content 
-    h1= title 
+    h1.text-center.mt-4.mb-5= title 
+    ul.list-group.list-unstyled 
+        li 
+            each music, i in data 
+                a.list-group-item(href="/music/" +music._id)= music.singer 
