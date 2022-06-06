@@ -1,0 +1,21 @@
+extends layout
+
+block content 
+    h1.text-center.mt-4.mb-5= title
+    form(method='POST' action='/register')
+        .mb-3
+            label.form-label(for='exampleInputEmail1') Ismingiz 
+            input#exampleInputEmail1.form-control(type='text' name="name")
+        .mb-3
+            label.form-label(for='username') Username ingiz
+            input#username.form-control(type='text' name='username')
+        .mb-3
+            label.form-label(for='email') Emailingiz
+            input#email.form-control(type='text' name='email')
+        .mb-3
+            label.form-label(for='password') Parolingiz
+            input#password.form-control(type='password' name='password')
+        .mb-3
+            label.form-label(for='password2') Parolingizni tasdiqlang
+            input#password2.form-control(type='password' name='password2')
+        button.btn.btn-primary(type='submit') Ro'yhatdan o'tish
