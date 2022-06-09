@@ -15,30 +15,20 @@ html(lang="en")
             span.navbar-toggler-icon
           #navbarSupportedContent.collapse.navbar-collapse
            ul.navbar-nav.me-auto.mb-2.mb-lg-0
-            if isIndex
-             li.nav-item
-                a.nav-link.active(href='/') Bosh sahifa
-            else 
-             li.nav-item
+            li.nav-item
                 a.nav-link(href='/') Bosh sahifa
-            if isMusic
-             li.nav-item
-                a.nav-link.active(href='/music/add') Musiqa qushish
-            else 
-             li.nav-item
+            li.nav-item
                 a.nav-link(href='/music/add') Musiqa qushish
-            if isReg 
-             li.nav-item
-                a.nav-link.active(href='/register') Ro'yhatdan o'tish
-            else 
-             li.nav-item
-                a.nav-link(href='/register') Ro'yhatdan o'tish
-            if isLogin 
-             li.nav-item
-                a.nav-link.active(href='/login') Login
-            else 
-             li.nav-item
-                a.nav-link(href='/login') Login
+           ul.navbar-nav.me-right.mb-2.mb-lg-0
+            p #{user}
+            if user
+                li.nav-item
+                    a.nav-link(href='/logout') Chiqish
+            else
+                li.nav-item
+                    a.nav-link(href='/user') Ro'yhatdan o'tish
+                li.nav-item
+                    a.nav-link(href='/login') Kirish
         .container   
             != messages('message', locals)
             if errors 
@@ -48,5 +38,5 @@ html(lang="en")
             footer 
                 br
                 hr 
-                p.dem Barcha xizmatlar litsenziyalangan &copy; 2022
+                p Barcha xizmatlar litsenziyalangan &copy; 2022
 

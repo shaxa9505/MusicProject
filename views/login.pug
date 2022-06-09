@@ -2,11 +2,11 @@ extends layout
 
 block content 
     h1.text-center.mt-4.mb-5= title
-    form(method='POST' action='/music/add')
+    form(method='POST' action='/login')
         .mb-3
-            label.form-label(for='exampleInputEmail1') Emailingiz
-            input#exampleInputEmail1.form-control(type='text' name="name")
+            label.form-label(for='username') Usernameingiz
+            input#username.form-control(type='text' name="username")
         .mb-3
-            label.form-label(for='singer') Parolingiz
-            input#singer.form-control(type='text' name='singer')
-        button.btn.btn-primary(type='submit') Junatish
+            label.form-label(for='password') Parolingiz
+            input#password.form-control(type='password' name='password')
+        button.btn.btn-primary(type='submit') Kirish 

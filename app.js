@@ -5,14 +5,14 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
-const mongodb = require("./helper/mongodb")();
+require("./helper/mongodb")();
 
 
 
 // validatorlar settings
-const flash = require("connect-flash");
 const validator = require("express-validator");
 const session = require("express-session");
+
 
 
 // express-messages settings navigator express messages
@@ -49,13 +49,28 @@ app.use(validator({
     }
 }))
 
+app.get("*", (req, res, next) => {
+    res.locals.user = req.user || null;
+    next()
+})
+
+// passportjs ni ulash
+
+const passport = require("passport")
+require("./helper/passport")(passport)
+app.use(passport.initialize());
+app.use(passport.session())
+
+
+
+
 
 const indexRouter = require("./routes/index");
 const musicAddRouter = require("./routes/musicAdd");
 const musicRouter = require("./routes/music");
 const musicEditRouter = require("./routes/musicEdit")
 const musicDeleteRouter = require("./routes/musicDelete")
-const registerRouter = require("./routes/register")
+const userRouter = require("./routes/users")
 const loginRouter = require("./routes/login")
 
 app.use("/", indexRouter)
@@ -63,8 +78,9 @@ app.use("/", musicAddRouter)
 app.use("/", musicRouter)
 app.use("/", musicEditRouter)
 app.use("/", musicDeleteRouter)
-app.use("/", registerRouter)
+app.use("/", userRouter)
 app.use("/", loginRouter)
+
 
 
 

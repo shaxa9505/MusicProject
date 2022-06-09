@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const registerSchema = new Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -22,4 +22,4 @@ const registerSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model("register", registerSchema)
+module.exports = mongoose.model("user", userSchema)

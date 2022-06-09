@@ -6,13 +6,10 @@ routes.get("/", (req, res) => {
     Music.find({}, (err, data) => {
         if(err) console.log(err);
         else {
-            res.render("index", {title: "Bosh sahifa", isIndex: true, data})
+            res.render("index", {title: "Bosh sahifa", data})
         }
     });
 })
-
-
-
 
 
 module.exports = routes

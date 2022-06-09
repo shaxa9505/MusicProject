@@ -1,13 +1,13 @@
 const {Router} = require("express");
 const routes = Router();
 const bcrypt = require("bcryptjs")
-const Register = require("../model/Register")
+const User = require("../model/User")
 
-routes.get("/register", (req ,res) => {
-    res.render("register", {title: "Ro'yhatdan utish sahifasi", isReg: true})
+routes.get("/user", (req ,res) => {
+    res.render("user", {title: "Ro'yhatdan utish"})
 })
 
-routes.post("/register", (req, res) => {
+routes.post("/user", (req, res) => {
     req.checkBody("name", "Iltimos ismingizni yozing").notEmpty();
     req.checkBody("username", "Iltimos username ingizni yozing").notEmpty();
     req.checkBody("email", "Iltimos emailingizni yozing").notEmpty();
@@ -17,7 +17,7 @@ routes.post("/register", (req, res) => {
     const errors = req.validationErrors();
 
     if(errors) {
-        res.render("register", {title: "Ro'yhatdan o'tishda xatolik bor", errors: errors})
+        res.render("user", {title: "Ro'yhatdan o'tishda xatolik bor", errors: errors})
     }
 
     else {
@@ -25,14 +25,14 @@ routes.post("/register", (req, res) => {
         const {name, username, email, password} = req.body
 
         bcrypt.hash(password, 10, (err, hash) => {
-            const newRegister = new Register({
+            const newUser = new User({
                 name,
                 username,
                 email,
                 password: hash
             })
 
-            newRegister.save((err) => {
+            newUser.save((err) => {
                 if(err) console.log(err);
                 else {
                     req.flash("success", "Ma'lumotlaringiz muvaffaqiyatli qabul qilindi")
